@@ -1,6 +1,9 @@
 package com.example.scrollingtext;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +23,14 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        Button buttonComment = findViewById(R.id.button_comment);
+        if (buttonComment != null) {
+            buttonComment.setOnClickListener(this::showToast);
+        }
+    }
+
+    public void showToast(View view) {
+        Toast.makeText(this, R.string.toast_message, Toast.LENGTH_SHORT).show();
     }
 }
